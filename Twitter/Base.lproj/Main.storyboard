@@ -57,7 +57,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="130" id="uRl-uI-Nxz">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweetCell" rowHeight="130" id="uRl-uI-Nxz" customClass="TweetCellTableViewCell" customModule="Twitter" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="130"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uRl-uI-Nxz" id="mxc-8G-7Ze">
@@ -71,15 +71,14 @@
                                                 <constraint firstAttribute="width" constant="65" id="cUd-UY-Sjk"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7YA-Eq-3rn">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7YA-Eq-3rn">
                                             <rect key="frame" x="89" y="11" width="92" height="27"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWL-EO-uwH">
-                                            <rect key="frame" x="89" y="46" width="270" height="73"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tweet content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWL-EO-uwH">
+                                            <rect key="frame" x="89" y="42" width="270" height="77"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -87,12 +86,21 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="7YA-Eq-3rn" firstAttribute="top" secondItem="mxc-8G-7Ze" secondAttribute="topMargin" id="7WG-gV-d0f"/>
+                                        <constraint firstItem="YWL-EO-uwH" firstAttribute="bottom" secondItem="mxc-8G-7Ze" secondAttribute="bottomMargin" id="JW6-xu-WIo"/>
+                                        <constraint firstItem="YWL-EO-uwH" firstAttribute="leading" secondItem="eJ1-e8-bnv" secondAttribute="trailing" constant="8" id="JkI-XW-1zB"/>
+                                        <constraint firstItem="YWL-EO-uwH" firstAttribute="trailing" secondItem="mxc-8G-7Ze" secondAttribute="trailingMargin" id="ZIv-s2-Na2"/>
                                         <constraint firstItem="eJ1-e8-bnv" firstAttribute="leading" secondItem="mxc-8G-7Ze" secondAttribute="leadingMargin" id="aPV-Vn-3a7"/>
                                         <constraint firstItem="eJ1-e8-bnv" firstAttribute="bottom" secondItem="mxc-8G-7Ze" secondAttribute="bottomMargin" id="dMF-wz-mHI"/>
+                                        <constraint firstItem="YWL-EO-uwH" firstAttribute="top" secondItem="7YA-Eq-3rn" secondAttribute="bottom" constant="4" id="ezi-T5-3Zc"/>
                                         <constraint firstItem="eJ1-e8-bnv" firstAttribute="top" secondItem="mxc-8G-7Ze" secondAttribute="topMargin" id="f2x-br-Lk2"/>
                                         <constraint firstItem="7YA-Eq-3rn" firstAttribute="leading" secondItem="eJ1-e8-bnv" secondAttribute="trailing" constant="8" id="lXg-fA-sZF"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="profileImageView" destination="eJ1-e8-bnv" id="8Pg-G4-NQG"/>
+                                    <outlet property="tweetContent" destination="YWL-EO-uwH" id="yrc-Q7-6Rd"/>
+                                    <outlet property="userNameLabel" destination="7YA-Eq-3rn" id="shY-eV-1h1"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
